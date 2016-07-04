@@ -1,0 +1,25 @@
+<html>
+<body>
+<pre>
+HELLO VM
+$!{value1}
+#foreach($color in $Colors)
+COLOR:$!{foreach.index}/$!{foreach.count}:$!{color}
+#end
+#foreach($key in $Map.keySet())
+Map$!{foreach.index}/$!{foreach.count}:$!{key}:$Map.get($key)
+#end
+$!{User.name}
+#set($title="ZL")
+#include("header.vm")<br>
+#parse("header.vm")
+
+#macro(render_c , $color,$index)
+COLOR BY MACRO $color,$index
+#end
+#foreach($color in $Colors)
+#render_c($color,$foreach.index)
+#end
+</pre>
+</body>
+</html>
