@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -20,14 +19,14 @@ import java.util.*;
 //@Controller
 public class IndexController {
     @Autowired
-    private ToutiaoService toutiaoservice;
+    private ToutiaoService toutiaoService;
     private static final Logger logger= LoggerFactory.getLogger(IndexController.class);
 
     @RequestMapping(path={"/","/index"})
     @ResponseBody
     public String index(){
         logger.info("visit index");
-        return "hello,,,world!!!<br>"+"toutiaosay:"+toutiaoservice.say();
+        return "hello,,,world!!!<br>"+"toutiaosay:"+ toutiaoService.say();
     }
 
     @RequestMapping(path={"/profile/{groupId}/{userId}"})
